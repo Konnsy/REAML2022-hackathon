@@ -11,6 +11,8 @@ class RawDataset(Dataset):
         datasetFolder (string): directory which contains the "raw" folder
         windowSize (int): determines the number of images that are stacked into a block (=window),
                             must be higher than 0
+        transform: Transform operation that is executed on the block of frames before it is returned.
+                        with the default of None, the loaded block is not modified.
 
         return: tensor of shape (1, windowSize, x, y) where x and y are the dimensions of 
                 a single image
@@ -26,7 +28,7 @@ class RawDataset(Dataset):
                 window = ds[idx]
     """
 
-    def __init__(self, datasetFolder, transform, windowSize=60):
+    def __init__(self, datasetFolder, transform=None, windowSize=60):
         if windowSize < 1 or not isinstance(windowSize, int):
             raise ValueError("WindowSize has to be an integer higher than zero!")
 
