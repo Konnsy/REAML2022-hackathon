@@ -26,11 +26,12 @@ class RawDataset(Dataset):
                 window = ds[idx]
     """
 
-    def __init__(self, datasetFolder, windowSize=60):
+    def __init__(self, datasetFolder, transform, windowSize=60):
         if windowSize < 1 or not isinstance(windowSize, int):
             raise ValueError("WindowSize has to be an integer higher than zero!")
 
         self.windowSize = windowSize
+        self.transform = transform
         self.iterIdx = 0
 
         self.root = osp.join(datasetFolder, "raw")        
@@ -49,11 +50,11 @@ class RawDataset(Dataset):
 
     def __getitem__(self, idx):
         """
-        Args:
-            index (int): Index
-        Returns:
-            image
-        """
+            Args:
+                index (int): Index
+            Returns:
+                image
+        """       
         if idx >= len(self):
             raise IndexError
 
@@ -75,6 +76,10 @@ class RawDataset(Dataset):
         
         self.startIdx = idx
         img = torch.stack(self.imgs, 0).float().unsqueeze(0)
+
+        if self.transform is not None:
+            img = self.transform(img)
+
         return img
 
 
