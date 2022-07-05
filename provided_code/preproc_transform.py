@@ -1,6 +1,6 @@
 import torch
 
-class MeanTransform(object):
+class PreprocessingTransform(object):
     """
     A transform to help modify the input data
     input:  a Block of images(frames)
