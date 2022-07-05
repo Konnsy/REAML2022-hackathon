@@ -84,6 +84,16 @@ class RawDataset(Dataset):
 
         return img
 
+    def filePathByIndex(self, idx, onlyName=False):
+        """
+        Returns the name of the center frame of the block with the given idx
+        """
+        filePath = self.filePaths[idx+self.windowSize//2]
+
+        if onlyName:
+            return osp.basename(filePath)
+        else:
+            return filePath
 
     def __len__(self):
         return len(self.filePaths) - self.windowSize + 1
