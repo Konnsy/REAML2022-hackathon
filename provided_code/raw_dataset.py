@@ -1,3 +1,11 @@
+"""
+required libraries: 
+    * numpy (pip install numpy)
+    * open cv (pip install opencv-python)
+    * pillow (pip install Pillow)
+    * torch (https://pytorch.org/get-started/locally/)    
+"""
+
 import cv2
 import os
 import os.path as osp

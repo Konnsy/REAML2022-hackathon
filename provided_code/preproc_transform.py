@@ -1,3 +1,6 @@
+"""
+required library: torch (https://pytorch.org/get-started/locally/)
+"""
 import torch
 
 class PreprocessingTransform(object):
