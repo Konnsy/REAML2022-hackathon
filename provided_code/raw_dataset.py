@@ -1,11 +1,3 @@
-"""
-required libraries: 
-    * numpy (pip install numpy)
-    * open cv (pip install opencv-python)
-    * pillow (pip install Pillow)
-    * torch (https://pytorch.org/get-started/locally/)    
-"""
-
 import cv2
 import os
 import os.path as osp
@@ -19,8 +11,6 @@ class RawDataset(Dataset):
         datasetFolder (string): directory which contains the "raw" folder
         windowSize (int): determines the number of images that are stacked into a block (=window),
                             must be higher than 0
-        transform: Transform operation that is executed on the block of frames before it is returned.
-                        with the default of None, the loaded block is not modified.
 
         return: tensor of shape (1, windowSize, x, y) where x and y are the dimensions of 
                 a single image
@@ -64,7 +54,7 @@ class RawDataset(Dataset):
                 index (int): Index
             Returns:
                 image
-        """       
+        """          
         if idx >= len(self):
             raise IndexError
 
@@ -92,6 +82,7 @@ class RawDataset(Dataset):
 
         return img
 
+
     def filePathByIndex(self, idx, onlyName=False):
         """
         Returns the name of the center frame of the block with the given idx
@@ -102,6 +93,7 @@ class RawDataset(Dataset):
             return osp.basename(filePath)
         else:
             return filePath
+
 
     def __len__(self):
         return len(self.filePaths) - self.windowSize + 1
@@ -116,6 +108,7 @@ class RawDataset(Dataset):
         except:
             self.iterIdx = 0
             raise StopIteration()
+
 
 
 def hasImageExtension(fileName):
