@@ -57,7 +57,23 @@ class CVATLoaderUtil:
         return fileName in self.annotationData
 
     def getPolygonsByImgName(self, fileName):
-        return self.annotationData[fileName][1]
+        polys = self.annotationData[fileName][1]
+        polys = [[ [pt[1], pt[0]] for pt in poly] for poly in polys]
+        return polys
+
+    def getBoxesByImgName(self, fileName):
+        polys = self.getPolygonsByImgName(fileName)
+        boxes = []
+
+        for poly in polys:
+            x_min = min([p[0] for p in poly])
+            x_max = max([p[0] for p in poly])
+            y_min = min([p[1] for p in poly])
+            y_max = max([p[1] for p in poly])
+            boxes.append([x_min, y_min, x_max, y_max])
+
+        boxes = torch.tensor(boxes)
+        return boxes
 
     def getShape(self, fileName):
         return (self.width, self.height)
@@ -106,8 +122,8 @@ class CVATLoaderUtil:
                         points = []
 
                         for pointString in pointsString.split(';'):
-                            # store this point as a list of float values
-                            points.append(list(map(lambda e: float(e), pointString.split(','))))
+                            # store this point as a list
+                            points.append(list(map(lambda e: int(float(e)), pointString.split(','))))
 
                         polygons.append(points)
                     polygons.append(points)
