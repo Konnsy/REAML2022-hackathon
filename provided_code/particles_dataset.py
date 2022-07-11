@@ -46,7 +46,7 @@ class ParticlesDataset(Dataset):
 
         self.cvatLoader = CVATLoaderUtil(self.pathAnnotations)
         self.blockLoader = RawDataset(self.datasetFolder, transform, windowSize=windowSize)
-
+        self.iterIdx = 0
 
     def __getitem__(self, index):
         """
@@ -79,7 +79,6 @@ class ParticlesDataset(Dataset):
             mask = self.cvatLoader.getMaskByFileName(fileName).unsqueeze(0).unsqueeze(0)            
             polys = self.cvatLoader.getPolygonsByImgName(fileName)
             boxes = self.cvatLoader.getBoxesByImgName(fileName)
-
         else:
             mask = torch.zeros((1, 1, block.shape[-2], block.shape[-1]))
             polys = []
@@ -94,7 +93,19 @@ class ParticlesDataset(Dataset):
 
         return res
 
+    def filePathByIndex(self, idx):
+        return self.blockLoader.filePathByIndex(idx)
 
     def __len__(self):
-        return len(self.windowLoader)
+        return len(self.blockLoader)
 
+    def __iter__(self):
+        return self
+
+    def __next__(self):
+        try:
+            self.iterIdx += 1
+            return self[self.iterIdx-1]
+        except:
+            self.iterIdx = 0
+            raise StopIteration()
