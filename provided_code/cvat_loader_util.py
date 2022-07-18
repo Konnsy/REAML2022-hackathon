@@ -4,6 +4,7 @@ required libraries:
     * numpy (pip install numpy)
     * torch (https://pytorch.org/get-started/locally/)
     * xmltodict (pip install xmltodict)
+    * PIL (pip install Pillow)
 """
 
 import numpy as np
@@ -13,6 +14,7 @@ import collections
 import torch
 import sys
 from matplotlib.path import Path
+from PIL import Image, ImageDraw
 
 """
 Important functions:
@@ -172,28 +174,39 @@ def maskImgFromPolygons(polygons, im_width, im_height):
 
 def maskFromPolygon(data, pixelValue=1, heightFirst=True):
     polygon, height, width = data
+    polygon = [list(e) for e in polygon]
+    polygon_x = [e[0] for e in polygon]
+    polygon_y = [e[1] for e in polygon]
+    polygon = list(zip(polygon_x, polygon_y))
 
-    polygon = list(map(lambda e: list(e), polygon))
+    img = Image.new('L', (height, width), 0)
+    ImageDraw.Draw(img).polygon(polygon, outline=1, fill=1)
+    mask = np.array(img)
 
-    if len(polygon) == 0:
-        if heightFirst:
-            return np.zeros(shape=(height, width), dtype=np.uint8)
-        else:
-            return np.zeros(shape=(width, height), dtype=np.uint8)
-
-    poly_path = Path(polygon)
-    x, y = np.mgrid[:height, :width]
-    coords = np.hstack((x.reshape(-1, 1), y.reshape(-1, 1)))
-    mask = poly_path.contains_points(coords)
-    mask = mask.reshape(height, width)
-
-    mask = mask.astype(np.uint8)
-    mask *= pixelValue
-
-    if not heightFirst:
+    if heightFirst:
         mask = mask.transpose(1, 0)
 
     return mask
+
+    #if len(polygon) == 0:
+    #    if heightFirst:
+    #        return np.zeros(shape=(height, width), dtype=np.uint8)
+    #    else:
+    #        return np.zeros(shape=(width, height), dtype=np.uint8)
+
+    #poly_path = Path(polygon)
+    #x, y = np.mgrid[:height, :width]
+    #coords = np.hstack((x.reshape(-1, 1), y.reshape(-1, 1)))
+    #mask = poly_path.contains_points(coords)
+    #mask = mask.reshape(height, width)
+
+    #mask = mask.astype(np.uint8)
+    #mask *= pixelValue
+
+    #if not heightFirst:
+    #    mask = mask.transpose(1, 0)
+
+    #return mask
 
 
 def scale(x, out_range=(-1, 1)):
