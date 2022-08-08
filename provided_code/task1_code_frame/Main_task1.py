@@ -12,7 +12,7 @@ from classifier2d import Classifier
 from preproc_transform import PreprocessingTransform
 
 # What you can do to improve results:
-# • have a look at the classifier, of cause
+# • have a look at the classifier, of course
 # • modify meta parameters: adapt optimizer, criterion, learning rate, number of epochs ...
 # • augment training data
 # • change other things that seem promising (except for the RawDataset and the window size)
