@@ -1,6 +1,5 @@
 import os
 import wget
-from preproc_transform import PreprocessingTransform
 from pyunpack import Archive
 
 def download_archive():
