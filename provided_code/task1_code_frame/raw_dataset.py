@@ -45,7 +45,7 @@ class RawDataset(Dataset):
         self.imgs = []
         self.startIdx = None
 
-        print(f"loaded {datasetFolder}")
+        #print(f"constructed {datasetFolder}")
 
 
     def __getitem__(self, idx):
