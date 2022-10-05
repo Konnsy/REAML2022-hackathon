@@ -7,8 +7,8 @@ import os.path as osp
 
 class TraceFilter:
     def __init__(self, raw_dataset):
-        self.filter = TimeSeriesFilter()
         # optional TODO: implement
+        pass
 
     def filter_traces(self, traces):
         return list(filter(lambda t : self.is_particle(t), traces))
