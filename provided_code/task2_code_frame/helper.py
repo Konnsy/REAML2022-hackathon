@@ -286,10 +286,7 @@ def getAllWithRawFolders(superfolder, recursive=True):
     """
     determine the paths of datasets by searching for 'raw' subfolders
     """
-    if not osp.exists(superfolder):
-        return []
-
-	withRawfolders = list(filter(lambda fd : osp.isdir(osp.join(superfolder, fd)) and
+    withRawfolders = list(filter(lambda fd : osp.isdir(osp.join(superfolder, fd)) and
                                  'raw' in list(os.listdir(osp.join(superfolder, fd))), os.listdir(superfolder)))
     withRawfolders = list(map(lambda fd : osp.join(superfolder, fd), withRawfolders))
 
