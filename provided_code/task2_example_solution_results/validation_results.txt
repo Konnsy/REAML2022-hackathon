@@ -1,0 +1,19 @@
+validating on dataset 1 of 9 (datasets/val\setB_2)
+0.9090909090909091 acc.: found 10 and expected 11 particle traces
+validating on dataset 2 of 9 (datasets/val\setC_2)
+0.8478260869565217 acc.: found 39 and expected 46 particle traces
+validating on dataset 3 of 9 (datasets/val\setD_2)
+0.34615384615384615 acc.: found 26 and expected 9 particle traces
+validating on dataset 4 of 9 (datasets/val\setE_2)
+0.8475609756097561 acc.: found 139 and expected 164 particle traces
+validating on dataset 5 of 9 (datasets/val\setF_2)
+0.8208955223880597 acc.: found 110 and expected 134 particle traces
+validating on dataset 6 of 9 (datasets/val\setJ_2)
+0.8333333333333334 acc.: found 12 and expected 10 particle traces
+validating on dataset 7 of 9 (datasets/val\setL_2)
+1.0 acc.: found 25 and expected 25 particle traces
+validating on dataset 8 of 9 (datasets/val\setN_2)
+0.20661157024793386 acc.: found 25 and expected 121 particle traces
+validating on dataset 9 of 9 (datasets/val\setP_1)
+0.8888888888888888 acc.: found 16 and expected 18 particle traces
+average validation acc.: 0.74
