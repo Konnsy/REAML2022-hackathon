@@ -23,12 +23,18 @@ We are always happy to exchange interesting approaches and to discuss the detect
 # Direct Links
 Below you can find the most important links from the wiki for quick access.
 
-## Links belonging to Task 1
+## Links to the provided data
+* raw data for task 1: https://tu-dortmund.sciebo.de/s/Fr899VLesLbj6Ao
+* preprocessed data for task 1: https://tu-dortmund.sciebo.de/s/qmbXSIiO45Gw8jj
+* raw data for task 2: https://tu-dortmund.sciebo.de/s/rTpNvzQBefsC1XS
+* preprocessed data for task 2: https://tu-dortmund.sciebo.de/s/TEBj972tO1TnJ6D
+
+## Links to the codes belonging to Task 1
 * code frame: https://github.com/Konnsy/REAML2022-hackathon/tree/main/provided_code/task1_code_frame
 * example solution: https://github.com/Konnsy/REAML2022-hackathon/tree/main/provided_code/task1_example_solution_code
 * trained model: https://github.com/Konnsy/REAML2022-hackathon/tree/main/provided_code/task1_example_solution_results
 
-## Links belonging to Task 2
+## Links to the codes belonging to Task 2
 * code frame: https://github.com/Konnsy/REAML2022-hackathon/tree/main/provided_code/task2_code_frame
 * example solution: https://github.com/Konnsy/REAML2022-hackathon/tree/main/provided_code/task2_example_solution_code
 * trained model: https://github.com/Konnsy/REAML2022-hackathon/tree/main/provided_code/task2_example_solution_results
