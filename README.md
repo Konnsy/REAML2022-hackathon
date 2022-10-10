@@ -32,6 +32,7 @@ Below you can find the most important links from the wiki for quick access.
 * preprocessed data for task 2: https://tu-dortmund.sciebo.de/s/TEBj972tO1TnJ6D
 * preprocessed test sets for task 1: https://tu-dortmund.sciebo.de/s/4pGw7PpYIDnB4b6
 * preprocessed test sets for task 2: https://tu-dortmund.sciebo.de/s/VSC3Fq4xlhS5otQ
+* result visualizations task 2: https://tu-dortmund.sciebo.de/s/8VoNUFZQU5o1bHA
 
 ## Links to the codes belonging to Task 1
 * code frame: https://github.com/Konnsy/REAML2022-hackathon/tree/main/provided_code/task1_code_frame
@@ -42,4 +43,3 @@ Below you can find the most important links from the wiki for quick access.
 * code frame: https://github.com/Konnsy/REAML2022-hackathon/tree/main/provided_code/task2_code_frame
 * example solution: https://github.com/Konnsy/REAML2022-hackathon/tree/main/provided_code/task2_example_solution_code
 * trained model: https://github.com/Konnsy/REAML2022-hackathon/tree/main/provided_code/task2_example_solution_results
-* result visualizations: https://tu-dortmund.sciebo.de/s/8VoNUFZQU5o1bHA
