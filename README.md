@@ -38,4 +38,4 @@ Below you can find the most important links from the wiki for quick access.
 * code frame: https://github.com/Konnsy/REAML2022-hackathon/tree/main/provided_code/task2_code_frame
 * example solution: https://github.com/Konnsy/REAML2022-hackathon/tree/main/provided_code/task2_example_solution_code
 * trained model: https://github.com/Konnsy/REAML2022-hackathon/tree/main/provided_code/task2_example_solution_results
-* result visualization: https://tu-dortmund.sciebo.de/s/8VoNUFZQU5o1bHA
+* result visualizations: https://tu-dortmund.sciebo.de/s/8VoNUFZQU5o1bHA
